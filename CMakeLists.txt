@@ -9,6 +9,8 @@ set(TEST_FILES src/tests.cpp)
 
 add_subdirectory(lib/googletest)
 
+include_directories(lib/googletest/include)
+
 add_executable(codejam ${SOURCE_FILES})
 add_executable(tests ${TEST_FILES})
 
