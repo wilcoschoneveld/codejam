@@ -4,14 +4,13 @@ project(codejam)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES src/main.cpp)
-set(TEST_FILES src/tests.cpp)
+set(SOURCE_FILES src/Wire.cpp)
 
 add_subdirectory(lib/googletest)
 
 include_directories(lib/googletest/include)
 
-add_executable(codejam ${SOURCE_FILES})
-add_executable(tests ${TEST_FILES})
+add_executable(codejam src/main.cpp ${SOURCE_FILES})
+add_executable(tests src/tests.cpp ${SOURCE_FILES})
 
 target_link_libraries(tests gtest gtest_main)
