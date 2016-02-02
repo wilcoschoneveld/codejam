@@ -6,5 +6,5 @@ class Wire {
 public:
     Wire(int a, int b);
 
-    bool intersects(const Wire& other);
+    bool intersects(const Wire& other) const;
 };
