@@ -4,7 +4,7 @@ project(codejam)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES src/Wire.cpp)
+set(SOURCE_FILES src/Wire.cpp src/Intranet.cpp)
 
 add_subdirectory(lib/googletest)
 
