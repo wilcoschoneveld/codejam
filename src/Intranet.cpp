@@ -1,19 +1,22 @@
 #include "Intranet.hpp"
 
 void Intranet::connect(int a, int b) {
+    // Add a new wire to the intranet
     wires.push_back(Wire(a, b));
 }
 
 int Intranet::countIntersections() const {
-    auto n = wires.size();
-    int c = 0;
+    // Start with 0 intersections
+    int count = 0;
 
-    for (int i = 0; i < n; ++i)
-        for (int j = i + 1; j < n; ++j)
-            if (wires[i].intersects(wires[j]))
-                c++;
+    // Loop through all combinations of wires, count all intersections
+    for (auto wireA = wires.begin(); wireA != wires.end(); ++wireA)
+        for (auto wireB = wireA + 1; wireB != wires.end(); ++wireB)
+            if (wireA->intersects(*wireB))
+                count++;
 
-    return c;
+    // Return count
+    return count;
 }
 
 void Intranet::solve(std::istream &input, std::ostream &output) {
