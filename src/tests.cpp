@@ -20,17 +20,31 @@ TEST(rope_intranet, wire_intersection) {
     EXPECT_FALSE(a.intersects(c));
 }
 
-TEST(rope_intranet, sample_input) {
-    Intranet a, b;
+TEST(rope_intranet, intranet_connections) {
+    Intranet a, b, c;
 
-    a.connect(1, 10);
+    a.connect(1, 1);
     a.connect(5, 5);
-    a.connect(7, 7);
 
-    EXPECT_EQ(2, a.countIntersections());
+    EXPECT_EQ(0, a.countIntersections());
 
-    b.connect(1, 1);
+    b.connect(1, 3);
     b.connect(2, 2);
 
-    EXPECT_EQ(0, b.countIntersections());
+    EXPECT_EQ(1, b.countIntersections());
+
+    c.connect(1, 5);
+    c.connect(2, 3);
+    c.connect(4, 2);
+
+    EXPECT_EQ(3, c.countIntersections());
+}
+
+TEST(rope_intranet, sample_input) {
+    std::istringstream input("2\n3\n1 10\n5 5\n7 7\n2\n1 1\n2 2");
+    std::ostringstream output;
+
+    Intranet::solve(input, output);
+
+    EXPECT_EQ(output.str(), "Case #1: 2\nCase #2: 0\n");
 }
