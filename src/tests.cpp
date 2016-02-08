@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "Wire.hpp"
 #include "Intranet.hpp"
+#include "Code.hpp"
 
 TEST(sanity, test_eq) {
     EXPECT_EQ(1, 1);
@@ -47,4 +48,10 @@ TEST(rope_intranet, sample_input) {
     Intranet::solve(input, output);
 
     EXPECT_EQ(output.str(), "Case #1: 2\nCase #2: 0\n");
+}
+
+TEST(code, test_one) {
+    Code code("11001001");
+
+    EXPECT_EQ(201, code.getLowestNum());
 }
