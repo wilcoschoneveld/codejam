@@ -14,6 +14,9 @@ long long Code::getLowestNum() const {
         if (chars.find(c) == std::string::npos)
             chars += c;
 
+    if (chars.size() < 2)
+        chars += '#';
+
     auto base = chars.size();
 
     std::swap(chars[0], chars[1]);
@@ -25,4 +28,19 @@ long long Code::getLowestNum() const {
     }
 
     return num;
+}
+
+void Code::solve(std::istream &input, std::ostream &output) {
+    int T;
+    std::string line;
+
+    input >> T;
+
+    for (int t = 0; t < T; ++t) {
+        input >> line;
+
+        Code code(line);
+
+        output << "Case #" << t + 1 << ": " << code.getLowestNum() << std::endl;
+    }
 }
