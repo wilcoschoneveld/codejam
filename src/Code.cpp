@@ -1,6 +1,6 @@
 #include "Code.hpp"
 
-#include <cmath>
+#include <algorithm>
 
 Code::Code(const std::string &code): code(code) {
     /* empty */
@@ -14,5 +14,15 @@ long long Code::getLowestNum() const {
         if (chars.find(c) == std::string::npos)
             chars += c;
 
-    return std::pow(chars.size(), code.size());
+    auto base = chars.size();
+
+    std::swap(chars[0], chars[1]);
+
+    for (char c : code) {
+        num *= base;
+
+        num += chars.find(c);
+    }
+
+    return num;
 }
