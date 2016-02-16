@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Code.hpp"
+#include "Audience.hpp"
 
 int main(int argc, char *argv[]) {
     std::ifstream input(argv[1]);
@@ -8,8 +8,8 @@ int main(int argc, char *argv[]) {
     if (argc > 2) {
         std::ofstream output(argv[2]);
 
-        Code::solve(input, output);
+        Audience::solve(input, output);
     } else {
-        Code::solve(input, std::cout);
+        Audience::solve(input, std::cout);
     }
 }
