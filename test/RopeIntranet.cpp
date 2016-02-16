@@ -1,15 +1,6 @@
 #include "gtest/gtest.h"
-#include "Wire.hpp"
-#include "Intranet.hpp"
-#include "Code.hpp"
-
-TEST(sanity, test_eq) {
-    EXPECT_EQ(1, 1);
-}
-
-TEST(sanity, test_neq) {
-    EXPECT_NE(1, 0);
-}
+#include "../src/Wire.hpp"
+#include "../src/Intranet.hpp"
 
 TEST(rope_intranet, wire_intersection) {
     Wire a(1, 5), b(3, 3), c(2, 6), d(10, 1);
@@ -48,20 +39,4 @@ TEST(rope_intranet, sample_input) {
     Intranet::solve(input, output);
 
     EXPECT_EQ(output.str(), "Case #1: 2\nCase #2: 0\n");
-}
-
-TEST(all_your_base, test_one) {
-    EXPECT_EQ(1, Code("a").getLowestNum());
-    EXPECT_EQ(2, Code("a0").getLowestNum());
-    EXPECT_EQ(7, Code("kkk").getLowestNum());
-    EXPECT_EQ(5, Code("101").getLowestNum());
-}
-
-TEST(all_your_base, sample_input) {
-    std::istringstream input("3\n11001001\ncats\nzig");
-    std::ostringstream output;
-
-    Code::solve(input, output);
-
-    EXPECT_EQ(output.str(), "Case #1: 201\nCase #2: 75\nCase #3: 11\n");
 }
